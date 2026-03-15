@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio • Dufour Lilou</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">✨ Dufour Lilou</div>
+        <button class="burger-menu" id="boutonBurger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-liens" id="navliens">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="skill-shop.html">Skill-Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="portfolio-header">
+        <h1>Mon Portfolio</h1>
+        <p>Découvrez mes projets en communication, graphisme et photographie ✨</p>
+    </header>
+
+    <main class="contenu-portfolio">
+
+        <section class="projet-section">
+            <div class="projet-header">
+                <h2>📸 Projet Photographie</h2>
+                <p class="projet-intro">Découvrez une sélection de mes travaux photographiques, capturant des moments uniques et des émotions authentiques.</p>
+            </div>
+            
+            <div class="photo-galerie">
+                <div class="photo-item" onclick="toggleCaption(this)" data-caption='"Trois âmes, une saison, mille souvenirs." : shooting photo en extérieur'>
+                    <img src="Eux 3.JPG" alt="Photo 1">
+                    <div class="photo-caption">
+                        <p>"Trois âmes, une saison, mille souvenirs." : shooting photo en extérieur</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item" onclick="toggleCaption(this)" data-caption='"Les yeux captent la lumière du monde" : shooting pour jeune fille en extérieur'>
+                    <img src="Ambre.JPG" alt="Photo 2">
+                    <div class="photo-caption">
+                        <p>"Les yeux captent la lumière du monde" : shooting pour jeune fille en extérieur</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item" onclick="toggleCaption(this)" data-caption='"Dans ses yeux marron, le monde sillumine" : shooting pour jeune fille en extérieur'>
+                    <img src="Capucine.JPG" alt="Photo 3">
+                    <div class="photo-caption">
+                        <p>"Dans ses yeux marron, le monde s'illumine" : shooting pour jeune fille en extérieur</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item" onclick="toggleCaption(this)" data-caption='"Petit cœur, grand émerveillement" : shooting photo pour un bébé de 4 mois'>
+                    <img src="petitbébé.JPG" alt="Photo 4">
+                    <div class="photo-caption">
+                        <p>"Petit cœur, grand émerveillement" : shooting photo pour un bébé de 4 mois</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item" onclick="toggleCaption(this)" data-caption='"Le monde sefface derrière les gouttes" : photo du paysage urbain'>
+                    <img src="retro.JPG" alt="Photo 5">
+                    <div class="photo-caption">
+                        <p>"Le monde s'efface derrière les gouttes" : photo du paysage urbain</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item" onclick="toggleCaption(this)" data-caption='"Esprit sauvage": photographie animale'>
+                    <img src="Chèvre.JPG" alt="Photo 6">
+                    <div class="photo-caption">
+                        <p>"Esprit sauvage": photographie animale</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projet-section">
+            <div class="contenu-projet">
+                <div class="projet-image" onclick="openProjectLightbox(this)" data-caption="Projet Decathlon Charleville">
+                    <img src="projetdecath.jpg" alt="Projet Decathlon Charleville">
+                </div>
+                <div class="projet-info">
+                    <h2>🏃 Decathlon Charleville</h2>
+                    <div class="projet-details">
+                        <p><strong>Contexte :</strong> Dans le cadre d’un projet interne proposé par Benjamin Lecuye, 
+                            sur la base du volontariat, plusieurs étudiants ont été amenés à concevoir du contenu. </p>
+                        <p><strong>Mission :</strong> Imaginer et concevoir une identité visuelle (logo et affiches) pour Décathlon Charleville-Mézières, en respectant 
+                            les valeurs de l’enseigne.</p>
+                        <p><strong>Réalisations :</strong></p>
+                        <ul>
+                            <li>Conception d’un logo pour Décathlon Charleville-Mézières</li>
+                            <li>Création de plusieurs affiches intégrant des lieux emblématiques des Ardennes</li>
+                            <li>Présentation du projet à l’ensemble de l’équipe Décathlon lors de l’annonce officielle</li>
+                        </ul>
+                        <p><strong>Compétences :</strong>Communication visuelle, création de contenus,conception graphique</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projet-section reverse">
+            <div class="contenu-projet">
+                <div class="projet-info">
+                    <h2>🎪 Foire de Sedan 2025</h2>
+                    <div class="projet-details">
+                        <p><strong>Contexte :</strong> Dans le cadre de mon alternance au sein de l’agence Hafficom, 
+                            j’ai participé à l’organisation et à la communication de la Foire de Sedan, un événement grand public rassemblant de nombreux visiteurs.</p>
+                        <p><strong>Mission :</strong> Assurer l’intégralité de la communication de l’événement et participer à l’organisation du concert, notamment 
+                            dans la gestion de l’artiste et de la programmation musicale.</p>
+                        <p><strong>Réalisations :</strong></p>
+                        <ul>
+                            <li>Élaboration de la stratégie de communication de l’événement</li>
+                            <li>Création et diffusion des supports de communication</li>
+                            <li>Suivi du projet de A à Z en lien avec les différents acteurs de l’événement</li>
+                        </ul>
+                        <p><strong>Compétences :</strong>Communication événementielle, gestion de projet, coordination artistique, création de contenus, organisation d’événements</p>
+                    </div>
+                </div>
+                <div class="projet-image" onclick="openProjectLightbox(this)" data-caption="Foire de Sedan 2025">
+                    <img src="foire de sedan.jpg" alt="Foire de Sedan 2025">
+                </div>
+            </div>
+        </section>
+
+        <section class="projet-section">
+            <div class="contenu-projet">
+                <div class="projet-image" onclick="openProjectLightbox(this)" data-caption="Circuit des Ardennes - Affiche officielle">
+                    <img src="circuit des ardennes.jpg" alt="Circuit des Ardennes">
+                </div>
+                <div class="projet-info">
+                    <h2>🏁 Circuit des Ardennes</h2>
+                    <div class="projet-details">
+                        <p><strong>Contexte :</strong>À l’occasion de la 50ᵉ édition du Circuit des Ardennes, événement cycliste emblématique, 
+                        l’organisation nous a sollicités pour concevoir l’affiche officielle mettant en avant le caractère exceptionnel de cet anniversaire.</p>
+                        <p><strong>Mission :</strong> Imaginer une affiche anniversaire valorisant les 50 ans de l’événement, 
+                            son histoire et son importance sur le territoire ardennais, tout en conservant une identité sportive forte.</p>
+                        <p><strong>Réalisations :</strong></p>
+                        <ul>
+                            <li>Conception d’une première proposition graphique</li>
+                            <li>Refonte complète du design afin d’aboutir à deux versions finales</li>
+                            <li>Travail sur un slogan anniversaire et une direction artistique cohérente</li>
+                            <li>Proposition de visuels mettant en valeur le caractère emblématique de l’événement</li>
+                        </ul>
+                        <p><strong>Compétences :</strong> Direction artistique, conception graphique, communication événementielle, créativité, adaptation aux retours</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+            <img id="lightbox-img" src="" alt="Photo agrandie">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+     <footer class="footer">
+        <div class="footer-content">
+            <p><strong>Adresse :</strong> Charleville-Mézières, 08000</p>
+            <p><strong>Téléphone :</strong> 07 68 64 94 31</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/lilou-dufour-b514b3296/" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/lunarys_photo/" target="_blank">Instagram</a>
+                <a href="mailto:dufour.lilou03@gmail.com">Mail</a>
+            </div>
+            <p class="footer-copy">© 2025 • Dufour Lilou-Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        const boutonBurger = document.getElementById('boutonBurger');
+        const navliens = document.getElementById('navliens');
+
+        boutonBurger.addEventListener('click', () => {
+            navliens.classList.toggle('active');
+            boutonBurger.classList.toggle('active');
+        });
+
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navliens.classList.remove('active');
+                boutonBurger.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                navliens.classList.remove('active');
+                boutonBurger.classList.remove('active');
+            }
+        });
+
+        function toggleCaption(element) {
+            if (event.target.closest('.photo-caption')) {
+                const caption = element.querySelector('.photo-caption');
+                caption.classList.toggle('active');
+            } else {
+                openLightbox(element);
+            }
+        }
+
+        function openLightbox(photoItem) {
+            const img = photoItem.querySelector('img');
+            const caption = photoItem.getAttribute('data-caption');
+            
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-caption').textContent = caption;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openProjectLightbox(projetImage) {
+            const img = projetImage.querySelector('img');
+            const caption = projetImage.getAttribute('data-caption');
+            
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-caption').textContent = caption;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

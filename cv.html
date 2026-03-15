@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV • Dufour Lilou</title>
+    <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">✨Dufour Lilou</div>
+        <button class="burger-menu" id="boutonBurger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-liens" id="navliens">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="skill-shop.html">Skill-Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="cv-header">
+        <div class="cv-photo">
+            <img src="Photo moi.jpeg" alt="Photo de Lilou Dufour">
+        </div>
+
+        <div class="identité-cv">
+            <h1>Lilou Dufour</h1>
+            <h2>Étudiante en licence professionnelle Métiers du Numérique </h2>
+            <p>  
+                Conception • Rédaction • Réalisation web
+            </p>
+        </div>
+
+        <div class="cv-contact">
+            <p>📍 Charleville-Mézières</p>
+            <p>📞 07 68 64 94 31</p>
+            <p>✉️ <a href="mailto:dufour.lilou03@gmail.com">dufour.lilou03@gmail.com</a></p>
+            <p>🔗 <a href="https://www.linkedin.com/in/lilou-dufour-b514b3296/" target="_blank">LinkedIn</a></p>
+        </div>
+    </header>
+
+    <main class="contenu-cv">
+
+        <section class="cv-section">
+            <h3>✨ Expériences professionnelles</h3>
+
+            <div class="cv-item">
+                <span>Aout 2025 - Aujourd'hui</span>
+                <h4>Chargée de projet en alternance - Hafficom</h4>
+            </div>
+            <div class="cv-item">
+                <span>Avril 2024 - Juil 2025</span>
+                <h4>Équipière polyvalente - McDonald's (La Francheville)</h4>
+            </div>
+
+            <div class="cv-item">
+                <span>Déc. 2023 - Fév.2025</span>
+                <h4>Correspondante - L'Ardennais</h4>
+            </div>
+
+            <div class="cv-item">
+                <span>Nov. - Déc. 2024</span>
+                <h4>Stage - Centre Hospitalier Intercommunal Nord Ardennes</h4>
+                <p>Rédaction d'articles, création de contenus réseaux sociaux, affiches, flyers, photos et vidéos.</p>
+            </div>
+
+            <div class="cv-item">
+                <span>Juil. 2024</span>
+                <h4>Stage - Préfecture des Ardennes</h4>
+                <p>Création de contenus digitaux, conception d'une carte interactive, photographie.</p>
+            </div>
+
+            <div class="cv-item">
+                <span>Nov. 2022</span>
+                <h4>Stage - Radio RVM</h4>
+                <p>Marketing, écriture de scripts, animation radio, journalisme.</p>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h3>🎓 Formations</h3>
+
+            <div class="cv-item">
+                <span>En cours</span>
+                <h4>Licence pro métier du numérique: conception rédaction et réalisation web</h4>
+                <p>Esine - Charleville-Mézières</p>
+            </div>
+            <div class="cv-item">
+                <span>2024-2025</span>
+                <h4>BTS Communication</h4>
+                <p>Lycée Sévigné - Charleville-Mézières</p>
+            </div>
+
+            <div class="cv-item">
+                <span>2022 - 2023</span>
+                <h4>Baccalauréat Général</h4>
+                <p>Humanités, Littérature & Philosophie • HGGSP</p>
+            </div>
+
+            <div class="cv-item">
+                <span>2024</span>
+                <h4>Permis B</h4>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h3>💻 Compétences</h3>
+
+            <ul class="skills">
+                <li>Création graphique (Canva • Suite Adobe)</li>
+                <li>Rédaction et production de contenus</li>
+                <li>Photographie</li>
+                <li>Gerer un projet</li>
+                <li>Notions HTML / CSS</li>
+                <li>Anglais (notions)</li>
+                <li>Italien (notions)</li>
+            </ul>
+        </section>
+
+        <section class="cv-section">
+            <h3>🌙 Centres d'intérêt</h3>
+
+            <ul class="interets">
+                <li>Photographie</li>
+                <li>Dessin</li>
+                <li>Écriture</li>
+                <li>Création visuelle</li>
+                <li>Communication</li>
+                <li>Musique</li>
+            </ul>
+        </section>
+
+    </main>
+
+     <footer class="footer">
+        <div class="contenu-footer">
+            <p><strong>Adresse :</strong> Charleville-Mézières, 08000</p>
+            <p><strong>Téléphone :</strong> 07 68 64 94 31</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/lilou-dufour-b514b3296/" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/lunarys_photo/" target="_blank">Instagram</a>
+                <a href="mailto:dufour.lilou03@gmail.com">Mail</a>
+            </div>
+            <p class="footer-copy">© 2025 • Dufour Lilou-Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        const boutonBurger = document.getElementById('boutonBurger');
+        const navliens = document.getElementById('navliens');
+
+        burgerBtn.addEventListener('click', () => {
+            navliens.classList.toggle('active');
+            boutonBurger.classList.toggle('active');
+        });
+
+        const links = document.querySelectorAll('.nav-liens a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navliens.classList.remove('active');
+                boutonBurger.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                navliens.classList.remove('active');
+                boutonBurger.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

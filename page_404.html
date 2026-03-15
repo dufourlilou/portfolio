@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Égarée | Dufour Lilou</title>
+    <link rel="stylesheet" href="/cv/Accueil.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="etoiles">
+            <div class="etoile"></div><div class="etoile"></div><div class="etoile"></div>
+            <div class="etoile"></div><div class="etoile"></div><div class="etoile"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-titre">404</h1>
+            <h2 class="hero-subtitle">Oups ! Cette page s'est perdue.</h2>
+            <p class="hero-texte">
+                Il semble que vous ayez un problème. <br>
+                La page que vous cherchez n'existe pas ou a été déplacée vers une autre galaxie.
+            </p>
+    </section>
+    <script>
+        const boutonBurger = document.getElementById('boutonBurger');
+        const navliens = document.getElementById('navliens');
+        boutonBurger.addEventListener('click', () => {
+            navliens.classList.toggle('active');
+            boutonBurger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

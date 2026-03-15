@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marché des Compétences - Dufour Lilou</title>
+    <link rel="stylesheet" href="skill-shop.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">✨Dufour Lilou</div>
+        <ul class="nav-liens">
+            <li><a href="Accueil Portfolio.HTML">Accueil</a></li>
+            <li><a href="cv.HTML">CV</a></li>
+            <li><a href="portfolio.HTML">Portfolio</a></li>
+            <li><a href="skill-shop.html">Skill-Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="contenu-main">
+        <h1 class="page-titre">✨ Marché des Compétences ✨</h1>
+
+        <div class="portefeuille">
+            <div class="solde-display">
+                💎 Crédits disponibles : <span class="solde-amount" id="solde">1000</span>
+            </div>
+        </div>
+
+        <div class="production-zone">
+            <h2 class="production-titre">🌟 Zone de Production</h2>
+            <form class="production-form" id="formProduction">
+                <label for="heures" style="color: var(--blanc-lune); font-size: 1.1rem;">Heures de travail :</label>
+                <input type="number" id="heures" min="1" max="100" value="1" required>
+                <button type="submit" class="bouton-production" id="boutonProduction">Lancer la Production</button>
+            </form>
+            <p style="text-align: center; color: var(--blanc-lune); margin-top: 1rem;">
+                💡 Chaque heure produit 20 crédits
+            </p>
+        </div>
+
+        <div class="catalogue-section">
+            <h2 class="section-titre">📚 Catalogue des Compétences</h2>
+            <div class="catalogue-grid" id="catalogueGrid"></div>
+        </div>
+
+        <div class="competences-acquises">
+            <h2 class="section-titre">🏆 Mes Compétences Acquises</h2>
+            <div class="acquired-grid" id="acquiredGrid">
+                <p style="text-align: center; color: var(--blanc-lune);">Aucune compétence acquise pour le moment.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="panier-flottant" id="panierFlottant">
+        <div class="panier-header">
+            <h3 class="panier-titre">🛒 Panier</h3>
+            <span class="panier-count" id="panierCount">0</span>
+        </div>
+        <div class="panier-items" id="panierItems">
+            <p style="color: var(--blanc-lune); text-align: center;">Votre panier est vide</p>
+        </div>
+        <div class="panier-total" id="panierTotal">Total : 0 Crédits</div>
+        <button class="bouton-valider" id="boutonValider">Valider l'Achat</button>
+        <button class="bouton-clear" id="boutonClear">Vider le Panier</button>
+    </div>
+
+    <footer class="footer">
+        <div class="contenu-footer">
+            <p><strong>Adresse :</strong> Charleville-Mézières, 08000</p>
+            <p><strong>Téléphone :</strong> 07 68 64 94 31</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/lilou-dufour-b514b3296/" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/lunarys_photo/" target="_blank">Instagram</a>
+                <a href="mailto:dufour.lilou03@gmail.com">Mail</a>
+            </div>
+            <p class="footer-copy">© 2025 • Dufour Lilou-Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        const CATALOGUE = [
+            { id: 1, nom: "CSS Flexbox & Grid", prix: 100, description: "Maîtrise de la mise en page avec Flexbox et Grid" },
+            { id: 2, nom: "JavaScript Vanilla", prix: 200, description: "Maîtrise de la syntaxe et de l'utilisation de Vanilla JS" },
+            { id: 3, nom: "HTML / CSS", prix: 200, description: "Création de pages web simples et structurées" },
+            { id: 4, nom: "Git / GitHub", prix: 150, description: "Gestion de versions et travail collaboratif" },
+            { id: 5, nom: "WordPress", prix: 220, description: "Création et gestion de sites WordPress" },
+            { id: 6, nom: "Responsive Design", prix: 180, description: "Adaptation des sites à tous les écrans" },
+            { id: 7, nom: "SEO – Bases", prix: 160, description: "Optimisation simple pour les moteurs de recherche" },
+            { id: 8, nom: "UI / UX Design", prix: 200, description: "Création d’interfaces claires et intuitives" },
+            { id: 9, nom: "Plugins / Widgets", prix: 180, description: "Ajout de fonctionnalités simples sur un site" },
+            { id: 10, nom: "Intégration Web", prix: 210, description: "Transformation de maquettes en pages web" }
+
+        ];
+
+        let etat = {
+            credits: 1000,
+            panier: [],
+            competencesAcquises: []
+        };
+
+        function chargerEtat() {
+            const saved = localStorage.getItem('skillShopState');
+            if (saved) {
+                etat = JSON.parse(saved);
+            }
+            afficherEtat();
+        }
+
+        function sauvegarderEtat() {
+            localStorage.setItem('skillShopState', JSON.stringify(etat));
+        }
+
+        function afficherEtat() {
+            document.getElementById('solde').textContent = etat.credits;
+            afficherPanier();
+            afficherCatalogue();
+            afficherCompetencesAcquises();
+        }
+
+        function afficherCatalogue() {
+            const grid = document.getElementById('catalogueGrid');
+            grid.innerHTML = '';
+
+            CATALOGUE.forEach(skill => {
+                const isAcquired = etat.competencesAcquises.some(c => c.id === skill.id);
+                const isInCart = etat.panier.some(c => c.id === skill.id);
+
+                const card = document.createElement('div');
+                card.className = `skill-card ${isAcquired ? 'acquired' : ''}`;
+                card.innerHTML = `
+                    <h3 class="skill-name">${skill.nom}</h3>
+                    <p class="skill-price">💎 ${skill.prix} Crédits</p>
+                    <p class="skill-description">${skill.description}</p>
+                    <button class="btn-add-cart" ${isAcquired || isInCart ? 'disabled' : ''} data-id="${skill.id}">
+                        ${isAcquired ? '✓ Acquise' : isInCart ? 'Dans le panier' : 'Ajouter au panier'}
+                    </button>
+                `;
+                card.addEventListener('mouseenter', () => {
+                    if (!isAcquired) {
+                        card.style.borderColor = 'var(--rose-pastel)';
+                    }
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.borderColor = 'rgba(212, 181, 240, 0.3)';
+                });
+
+                grid.appendChild(card);
+            });
+
+            document.querySelectorAll('.btn-add-cart:not([disabled])').forEach(bouton => {
+                bouton.addEventListener('click', (e) => {
+                    const skillId = parseInt(e.target.dataset.id);
+                    ajouterAuPanier(skillId);
+                    e.target.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        e.target.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        }
+
+        function ajouterAuPanier(skillId) {
+            const skill = CATALOGUE.find(s => s.id === skillId);
+            if (skill && !etat.panier.some(c => c.id === skillId)) {
+                etat.panier.push(skill);
+                sauvegarderEtat();
+                afficherEtat();
+            }
+        }
+
+        function afficherPanier() {
+            const itemsDiv = document.getElementById('panierItems');
+            const countSpan = document.getElementById('panierCount');
+            const totalDiv = document.getElementById('panierTotal');
+
+            countSpan.textContent = etat.panier.length;
+
+            if (etat.panier.length === 0) {
+                itemsDiv.innerHTML = '<p style="color: var(--blanc-lune); text-align: center;">Votre panier est vide</p>';
+                totalDiv.textContent = 'Total : 0 Crédits';
+            } else {
+                itemsDiv.innerHTML = etat.panier.map(skill => `
+                    <div class="panier-item">
+                        <strong>${skill.nom}</strong><br>
+                        ${skill.prix} Crédits
+                    </div>
+                `).join('');
+
+                const total = etat.panier.reduce((sum, skill) => sum + skill.prix, 0);
+                totalDiv.textContent = `Total : ${total} Crédits`;
+            }
+        }
+
+        function validerAchat() {
+            if (etat.panier.length === 0) {
+                afficherMessage('Votre panier est vide !', 'error');
+                return;
+            }
+
+            const total = etat.panier.reduce((sum, skill) => sum + skill.prix, 0);
+
+            if (etat.credits >= total) {
+                etat.credits -= total;
+                etat.competencesAcquises.push(...etat.panier);
+                etat.panier = [];
+                sauvegarderEtat();
+                afficherEtat();
+                afficherMessage('✨ Achat réussi ! Compétences acquises !', 'success');
+            } else {
+                const manquant = total - etat.credits;
+                afficherMessage(`❌ Crédits insuffisants ! Il vous manque ${manquant} crédits.`, 'error');
+            }
+        }
+
+        function viderPanier() {
+            etat.panier = [];
+            sauvegarderEtat();
+            afficherEtat();
+            afficherMessage('Panier vidé', 'success');
+        }
+
+        function afficherCompetencesAcquises() {
+            const grid = document.getElementById('acquiredGrid');
+
+            if (etat.competencesAcquises.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; color: var(--blanc-lune);">Aucune compétence acquise pour le moment.</p>';
+            } else {
+                grid.innerHTML = etat.competencesAcquises.map(skill => `
+                    <div class="acquired-card">
+                        <h3>${skill.nom}</h3>
+                        <p style="color: var(--bleu-pastel);">${skill.prix} Crédits</p>
+                    </div>
+                `).join('');
+            }
+        }
+        function afficherMessage(texte, type) {
+            const existingMsg = document.querySelector('.message');
+            if (existingMsg) existingMsg.remove();
+
+            const msg = document.createElement('div');
+            msg.className = `message ${type}`;
+            msg.textContent = texte;
+            document.body.appendChild(msg);
+
+            setTimeout(() => {
+                msg.remove();
+            }, 3000);
+        }
+        document.getElementById('formProduction').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const heures = parseInt(document.getElementById('heures').value);
+            const creditsGagnes = heures * 20;
+
+            etat.credits += creditsGagnes;
+            sauvegarderEtat();
+            afficherEtat();
+            afficherMessage(`✨ +${creditsGagnes} crédits produits !`, 'success');
+
+            const btn = document.getElementById('boutonProduction');
+            btn.disabled = true;
+            let countdown = 3;
+            btn.textContent = `Attendre ${countdown}s...`;
+
+            const interval = setInterval(() => {
+                countdown--;
+                btn.textContent = `Attendre ${countdown}s...`;
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    btn.disabled = false;
+                    btn.textContent = 'Lancer la Production';
+                }
+            }, 1000);
+        });
+
+        function creerBonusAleatoire() {
+            const bonus = document.createElement('div');
+            bonus.className = 'bonus-aleatoire';
+            bonus.textContent = '💎';
+            bonus.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            bonus.style.top = Math.random() * (window.innerHeight - 200) + 200 + 'px';
+
+            bonus.addEventListener('click', () => {
+                const creditsBonus = Math.floor(Math.random() * 50) + 10;
+                etat.credits += creditsBonus;
+                sauvegarderEtat();
+                afficherEtat();
+                afficherMessage(`🎁 Bonus ! +${creditsBonus} crédits !`, 'success');
+                bonus.remove();
+            });
+
+            document.body.appendChild(bonus);
+
+            setTimeout(() => {
+                if (bonus.parentElement) {
+                    bonus.remove();
+                }
+            }, 5000);
+        }
+
+        function planifierBonusAleatoire() {
+            const delai = (Math.random() * 30000) + 30000; 
+            setTimeout(() => {
+                creerBonusAleatoire();
+                planifierBonusAleatoire();
+            }, delai);
+        }
+
+        document.getElementById('boutonValider').addEventListener('click', validerAchat);
+
+        document.getElementById('boutonClear').addEventListener('click', viderPanier);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'c' || e.key === 'C') {
+                viderPanier();
+            }
+            if (e.key === 'p' || e.key === 'P') {
+                const panier = document.getElementById('panierFlottant');
+                panier.classList.toggle('hidden');
+            }
+        });
+
+        chargerEtat();
+        planifierBonusAleatoire();
+    </script>
+</body>
+</html>
