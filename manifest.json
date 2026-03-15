@@ -1,0 +1,16 @@
+{
+  "name": "Portfolio Lilou Dufour",
+  "short_name": "Lilou Portf",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6200ee",
+  "description": "Portfolio de Lilou Dufour - Étudiante en Métiers du Numérique",
+  "icons": [
+    {
+      "src": "Photo moi.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}

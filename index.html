@@ -13,6 +13,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="Accueil.css">
     <meta name="description" content="Découvrez le portfolio de Lilou Dufour, 
     étudiante en licence professionnelle Métiers du Numérique. Création visuelle et communication 360°.">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6200ee">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -127,5 +129,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         });
     </script>
+    <script>
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  };
+</script>
 </body>
 </html>
